@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mina Recept</title>
+  <meta name="description" content="Mina Recept är din personliga kokbok i mobilen. Skapa, spara och organisera dina favoritrecept enkelt och stilrent." />
+  <title>Mina Recept – Din personliga kokbok i mobilen</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,12 +26,12 @@
           stilrent sätt. Ha allt samlat på ett ställe, alltid nära till hands.
         </p>
         <div class="hero-buttons">
-          <a href="#download" class="btn primary">Ladda ner</a>
+          <a href="#download" class="btn primary">Ladda ner appen</a>
           <a href="#features" class="btn secondary">Läs mer</a>
         </div>
       </div>
 
-      <div class="phone-mockup">
+      <div class="phone-mockup" aria-label="Förhandsvisning av appen Mina Recept">
         <div class="phone-screen">
           <div class="app-card">
             <h3>Krämig Pasta</h3>
@@ -49,41 +50,45 @@
     </div>
   </header>
 
-  <section id="features" class="section">
-    <h2>Funktioner</h2>
-    <div class="features-grid">
-      <div class="feature-box">
-        <h3>Skapa recept</h3>
-        <p>Skriv in ingredienser, instruktioner och portioner på ett tydligt sätt.</p>
+  <main>
+    <section id="features" class="section">
+      <h2>Funktioner</h2>
+      <div class="features-grid">
+        <article class="feature-box">
+          <h3>Skapa recept</h3>
+          <p>Skriv in ingredienser, instruktioner och portioner på ett tydligt sätt.</p>
+        </article>
+        <article class="feature-box">
+          <h3>Spara favoriter</h3>
+          <p>Samla dina bästa recept i en egen digital receptsamling.</p>
+        </article>
+        <article class="feature-box">
+          <h3>Enkelt att använda</h3>
+          <p>Ren design som gör att recepten är lätta att läsa medan du lagar mat.</p>
+        </article>
       </div>
-      <div class="feature-box">
-        <h3>Spara favoriter</h3>
-        <p>Samla dina bästa recept i en egen digital receptsamling.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Enkelt att använda</h3>
-        <p>Ren design som gör att recepten är lätta att läsa medan du lagar mat.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="section alt">
-    <h2>Om appen</h2>
-    <p class="about-text">
-      Många har recept utspridda i anteckningar, kokböcker och bilder i mobilen.
-      Med Mina Recept får du ordning på allt. Appen är byggd för att göra det
-      enkelt att samla recept, justera portioner och ha dina maträtter redo när du behöver dem.
-    </p>
-  </section>
+    <section id="about" class="section alt">
+      <h2>Om appen</h2>
+      <p class="about-text">
+        Många har recept utspridda i anteckningar, kokböcker och bilder i mobilen.
+        Med Mina Recept får du ordning på allt. Appen är byggd för att göra det
+        enkelt att samla recept, justera portioner och ha dina maträtter redo när du behöver dem.
+      </p>
+    </section>
 
-  <section id="download" class="section">
-    <h2>Ladda ner appen</h2>
-    <p>Snart tillgänglig på App Store.</p>
-    <a href="#" class="btn primary">App Store</a>
-  </section>
+    <section id="download" class="section">
+      <h2>Ladda ner appen</h2>
+      <p>Snart tillgänglig på App Store.</p>
+      <a href="#" class="btn primary" aria-label="Ladda ner Mina Recept på App Store">Kommer snart till App Store</a>
+    </section>
+  </main>
 
   <footer class="footer">
     <p>© 2026 Mina Recept. Alla rättigheter förbehållna.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
