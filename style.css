@@ -232,27 +232,27 @@ body {
   color: #4f4f4f;
 }
 
+.about-carousel {
+  margin-top: 40px;
+}
+
 .about-slider {
   display: flex;
   gap: 24px;
-  margin-top: 40px;
   overflow-x: auto;
+  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 10px 6px 16px;
+  scrollbar-width: none;
 }
 
 .about-slider::-webkit-scrollbar {
-  height: 8px;
-}
-
-.about-slider::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 999px;
+  display: none;
 }
 
 .about-slide {
-  flex: 0 0 320px;
+  flex: 0 0 100%;
+  max-width: 100%;
   scroll-snap-align: center;
   background: rgba(255, 255, 255, 0.72);
   border-radius: 26px;
@@ -313,10 +313,52 @@ body {
   font-size: 1.05rem;
   line-height: 1.6;
   color: #555;
-  max-width: 260px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
+.about-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.about-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.about-dot.active {
+  background: #d97706;
+  transform: scale(1.15);
+}
+
+@media (max-width: 900px) {
+  .about-slide {
+    padding: 22px 18px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-phone {
+    width: 200px;
+    height: 400px;
+  }
+
+  .about-slide h3 {
+    font-size: 1.35rem;
+  }
+
+  .about-slide p {
+    font-size: 1rem;
+  }
+}
 .footer {
   text-align: center;
   padding: 30px 20px 40px;
