@@ -140,14 +140,13 @@ body {
   background: #111;
   border-radius: 44px;
   padding: 10px;
-  box-shadow: 
+  box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.3),
     inset 0 0 0 2px rgba(255, 255, 255, 0.05);
   position: relative;
   flex-shrink: 0;
 }
 
-/* Notch */
 .phone-mockup::before {
   content: "";
   position: absolute;
@@ -161,7 +160,6 @@ body {
   z-index: 3;
 }
 
-/* Skärm */
 .phone-screen {
   width: 100%;
   height: 100%;
@@ -171,7 +169,6 @@ body {
   position: relative;
 }
 
-/* Bilden */
 .app-image {
   width: 100%;
   height: 100%;
@@ -179,7 +176,6 @@ body {
   object-position: top center;
   display: block;
 }
-
 
 .section {
   padding: 90px 40px;
@@ -235,38 +231,92 @@ body {
   font-size: 1.1rem;
   color: #4f4f4f;
 }
-.about-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+.about-slider {
+  display: flex;
   gap: 24px;
   margin-top: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 6px 16px;
 }
 
-.about-item {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 22px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+.about-slider::-webkit-scrollbar {
+  height: 8px;
 }
 
-.about-image {
+.about-slider::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+.about-slide {
+  flex: 0 0 320px;
+  scroll-snap-align: center;
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 26px;
+  padding: 24px 20px 26px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.about-phone {
+  width: 220px;
+  height: 440px;
+  margin: 0 auto 22px;
+  background: #111;
+  border-radius: 34px;
+  padding: 8px;
+  position: relative;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.about-phone::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 20px;
+  background: #000;
+  border-radius: 0 0 14px 14px;
+  z-index: 3;
+}
+
+.about-phone-screen {
   width: 100%;
-  border-radius: 18px;
-  display: block;
-  margin-bottom: 16px;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #000;
 }
 
-.about-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.about-phone-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.about-slide h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
   color: #222;
 }
 
-.about-item p {
+.about-slide p {
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
+  max-width: 260px;
+  margin: 0 auto;
 }
+
 .footer {
   text-align: center;
   padding: 30px 20px 40px;
@@ -318,8 +368,9 @@ body {
   .features-grid {
     grid-template-columns: 1fr;
   }
-  .about-gallery {
-    grid-template-columns: 1fr;
+
+  .about-slide {
+    flex: 0 0 300px;
   }
 }
 
@@ -348,5 +399,28 @@ body {
 
   .hero-buttons {
     flex-direction: column;
+  }
+
+  .about-slider {
+    gap: 18px;
+    padding: 10px 2px 16px;
+  }
+
+  .about-slide {
+    flex: 0 0 85%;
+    padding: 20px 16px 24px;
+  }
+
+  .about-phone {
+    width: 200px;
+    height: 400px;
+  }
+
+  .about-slide h3 {
+    font-size: 1.35rem;
+  }
+
+  .about-slide p {
+    font-size: 1rem;
   }
 }
