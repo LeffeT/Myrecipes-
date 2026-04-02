@@ -234,6 +234,7 @@ body {
 
 .about-carousel {
   margin-top: 40px;
+  overflow: hidden;
 }
 
 .about-slider {
@@ -245,6 +246,13 @@ body {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   touch-action: pan-x;
+  cursor: grab;
+  user-select: none;
+}
+
+.about-slider.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }
 
 .about-slider::-webkit-scrollbar {
@@ -255,6 +263,7 @@ body {
   flex: 0 0 100%;
   max-width: 100%;
   scroll-snap-align: center;
+  scroll-snap-stop: always;
   background: rgba(255, 255, 255, 0.72);
   border-radius: 26px;
   padding: 24px 20px 26px;
@@ -302,6 +311,7 @@ body {
   object-fit: cover;
   object-position: top center;
   display: block;
+  pointer-events: none;
 }
 
 .about-slide h3 {
@@ -339,50 +349,7 @@ body {
   background: #d97706;
   transform: scale(1.15);
 }
-.about-controls {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 18px;
-}
-.about-arrow {
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #222;
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.about-arrow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-@media (max-width: 900px) {
-  .about-slide {
-    padding: 22px 18px 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-phone {
-    width: 200px;
-    height: 400px;
-  }
-
-  .about-slide h3 {
-    font-size: 1.35rem;
-  }
-
-  .about-slide p {
-    font-size: 1rem;
-  }
-}
 .footer {
   text-align: center;
   padding: 30px 20px 40px;
@@ -436,7 +403,7 @@ body {
   }
 
   .about-slide {
-    flex: 0 0 300px;
+    padding: 22px 18px 24px;
   }
 }
 
@@ -465,16 +432,6 @@ body {
 
   .hero-buttons {
     flex-direction: column;
-  }
-
-  .about-slider {
-    gap: 18px;
-    padding: 10px 2px 16px;
-  }
-
-  .about-slide {
-    flex: 0 0 85%;
-    padding: 20px 16px 24px;
   }
 
   .about-phone {
