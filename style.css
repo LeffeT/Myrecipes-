@@ -271,7 +271,6 @@ body {
   margin-top: 40px;
   overflow: hidden;
 }
-
 .about-slider {
   display: flex;
   gap: 24px;
@@ -281,19 +280,25 @@ body {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   user-select: none;
+  -webkit-user-select: none;
   cursor: grab;
   touch-action: pan-y;
-  overscroll-behavior-x: contain;
-}
-
-.about-slider::-webkit-scrollbar {
-  display: none;
 }
 
 .about-slider.dragging {
   cursor: grabbing;
   scroll-behavior: auto;
 }
+
+.about-slider,
+.about-slider * {
+  -webkit-user-drag: none;
+}
+
+.about-phone-image {
+  pointer-events: none;
+}
+
 
 .about-slide {
   flex: 0 0 100%;
