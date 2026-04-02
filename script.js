@@ -2,14 +2,17 @@ console.log("Mina Recept landing page loaded.");
 
 const aboutSlider = document.getElementById("aboutSlider");
 const aboutDots = document.querySelectorAll(".about-dot");
-const aboutPrev = document.getElementById("aboutPrev");
-const aboutNext = document.getElementById("aboutNext");
 
 if (aboutSlider && aboutDots.length) {
   const slides = document.querySelectorAll(".about-slide");
   let currentIndex = 0;
-  let autoSlide;
+  let autoSlide = null;
   let isInteracting = false;
+
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let dragMoved = false;
 
   function updateDots(index) {
     aboutDots.forEach((dot, i) => {
@@ -17,11 +20,13 @@ if (aboutSlider && aboutDots.length) {
     });
   }
 
+  function getGap() {
+    const styles = window.getComputedStyle(aboutSlider);
+    return parseInt(styles.gap || styles.columnGap || 0, 10);
+  }
+
   function getSlideWidth() {
-    const firstSlide = slides[0];
-    const sliderStyles = window.getComputedStyle(aboutSlider);
-    const gap = parseInt(sliderStyles.columnGap || sliderStyles.gap || 0, 10);
-    return firstSlide.offsetWidth + gap;
+    return slides[0].offsetWidth + getGap();
   }
 
   function goToSlide(index) {
@@ -36,21 +41,11 @@ if (aboutSlider && aboutDots.length) {
     updateDots(currentIndex);
   }
 
-  function startAutoSlide() {
-    stopAutoSlide();
-
-    autoSlide = setInterval(() => {
-      if (isInteracting) return;
-
-      currentIndex = (currentIndex + 1) % slides.length;
-      goToSlide(currentIndex);
-    }, 3500);
-  }
-
-  function stopAutoSlide() {
-    if (autoSlide) {
-      clearInterval(autoSlide);
-    }
+  function snapToNearestSlide() {
+    const slideWidth = getSlideWidth();
+    const index = Math.round(aboutSlider.scrollLeft / slideWidth);
+    currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+    goToSlide(currentIndex);
   }
 
   function updateCurrentSlideFromScroll() {
@@ -61,6 +56,24 @@ if (aboutSlider && aboutDots.length) {
       currentIndex = index;
       updateDots(currentIndex);
     }
+  }
+
+  function stopAutoSlide() {
+    if (autoSlide) {
+      clearInterval(autoSlide);
+      autoSlide = null;
+    }
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+
+    autoSlide = setInterval(() => {
+      if (isInteracting || isDragging) return;
+
+      currentIndex = (currentIndex + 1) % slides.length;
+      goToSlide(currentIndex);
+    }, 3500);
   }
 
   aboutDots.forEach((dot, index) => {
@@ -76,48 +89,70 @@ if (aboutSlider && aboutDots.length) {
     });
   });
 
-  if (aboutPrev) {
-    aboutPrev.addEventListener("click", () => {
-      isInteracting = true;
-      stopAutoSlide();
-
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      goToSlide(currentIndex);
-
-      setTimeout(() => {
-        isInteracting = false;
-        startAutoSlide();
-      }, 4000);
-    });
-  }
-
-  if (aboutNext) {
-    aboutNext.addEventListener("click", () => {
-      isInteracting = true;
-      stopAutoSlide();
-
-      currentIndex = (currentIndex + 1) % slides.length;
-      goToSlide(currentIndex);
-
-      setTimeout(() => {
-        isInteracting = false;
-        startAutoSlide();
-      }, 4000);
-    });
-  }
-
   aboutSlider.addEventListener("touchstart", () => {
     isInteracting = true;
     stopAutoSlide();
-  });
+  }, { passive: true });
 
   aboutSlider.addEventListener("touchend", () => {
-    updateCurrentSlideFromScroll();
+    snapToNearestSlide();
 
     setTimeout(() => {
       isInteracting = false;
       startAutoSlide();
     }, 4000);
+  });
+
+  aboutSlider.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    dragMoved = false;
+    isInteracting = true;
+    stopAutoSlide();
+
+    aboutSlider.classList.add("dragging");
+    startX = e.pageX;
+    startScrollLeft = aboutSlider.scrollLeft;
+  });
+
+  aboutSlider.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    e.preventDefault();
+    dragMoved = true;
+
+    const x = e.pageX;
+    const walk = x - startX;
+    aboutSlider.scrollLeft = startScrollLeft - walk;
+  });
+
+  aboutSlider.addEventListener("mouseleave", () => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    aboutSlider.classList.remove("dragging");
+    snapToNearestSlide();
+
+    setTimeout(() => {
+      isInteracting = false;
+      startAutoSlide();
+    }, 4000);
+  });
+
+  aboutSlider.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    aboutSlider.classList.remove("dragging");
+    snapToNearestSlide();
+
+    setTimeout(() => {
+      isInteracting = false;
+      startAutoSlide();
+    }, 4000);
+  });
+
+  aboutSlider.addEventListener("dragstart", (e) => {
+    e.preventDefault();
   });
 
   aboutSlider.addEventListener("scroll", () => {
