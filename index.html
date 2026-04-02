@@ -14,24 +14,49 @@
   <header class="hero">
     <nav class="navbar">
       <div class="logo">Mina Recept</div>
+
       <div class="nav-links">
-        <a href="#features">Funktioner</a>
-        <a href="#about">Om appen</a>
-        <a href="#download">Ladda ner</a>
+        <a href="#features" data-i18n="navFeatures">Funktioner</a>
+        <a href="#about" data-i18n="navAbout">Om appen</a>
+        <a href="#download" data-i18n="navDownload">Ladda ner</a>
+
+        <div class="language-switcher" aria-label="Language switcher">
+          <button
+            type="button"
+            class="lang-btn active"
+            data-lang="sv"
+            aria-pressed="true"
+          >
+            SV
+          </button>
+          <button
+            type="button"
+            class="lang-btn"
+            data-lang="en"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+        </div>
       </div>
     </nav>
 
     <div class="hero-content">
       <div class="hero-text">
-        <h1>Din personliga kokbok i mobilen</h1>
-        <p>
+        <h1 data-i18n="heroTitle">Din personliga kokbok i mobilen</h1>
+        <p data-i18n="heroText">
           Skapa, spara och organisera dina favoritrecept på ett enkelt och
           stilrent sätt. Ha allt samlat på ett ställe, alltid nära till hands.
           Dela enkelt recept med familj och vänner.
         </p>
+
         <div class="hero-buttons">
-          <a href="#download" class="btn primary">Ladda ner appen</a>
-          <a href="#features" class="btn secondary">Läs mer</a>
+          <a href="#download" class="btn primary" data-i18n="heroPrimaryBtn">
+            Ladda ner appen
+          </a>
+          <a href="#features" class="btn secondary" data-i18n="heroSecondaryBtn">
+            Läs mer
+          </a>
         </div>
       </div>
 
@@ -45,33 +70,46 @@
 
   <main>
     <section id="features" class="section">
-      <h2>Funktioner</h2>
+      <h2 data-i18n="featuresTitle">Funktioner</h2>
+
       <div class="features-grid">
         <article class="feature-box">
-          <h3>Skapa recept</h3>
-          <p>Skriv in ingredienser, instruktioner och portioner på ett tydligt sätt.</p>
+          <h3 data-i18n="feature1Title">Skapa recept</h3>
+          <p data-i18n="feature1Text">
+            Skriv in ingredienser, instruktioner och portioner på ett tydligt sätt.
+          </p>
         </article>
+
         <article class="feature-box">
-          <h3>Spara favoriter</h3>
-          <p>Samla dina bästa recept i en egen digital receptsamling.</p>
+          <h3 data-i18n="feature2Title">Spara favoriter</h3>
+          <p data-i18n="feature2Text">
+            Samla dina bästa recept i en egen digital receptsamling.
+          </p>
         </article>
+
         <article class="feature-box">
-          <h3>Enkelt att använda</h3>
-          <p>Ren design som gör att recepten är lätta att läsa medan du lagar mat.</p>
+          <h3 data-i18n="feature3Title">Enkelt att använda</h3>
+          <p data-i18n="feature3Text">
+            Ren design som gör att recepten är lätta att läsa medan du lagar mat.
+          </p>
         </article>
       </div>
     </section>
 
     <section id="about" class="section alt">
-      <h2>Om appen</h2>
+      <h2 data-i18n="aboutTitle">Om appen</h2>
 
-      <p class="about-text">
+      <p class="about-text" data-i18n="aboutText">
         Mina Recept hjälper dig att samla, organisera och använda dina favoritrecept
         på ett enkelt och tydligt sätt. Här är några exempel på hur appen fungerar.
       </p>
 
       <div class="about-carousel">
-        <div class="about-slider" id="aboutSlider">
+        <div
+          class="about-slider"
+          id="aboutSlider"
+          aria-label="Bildkarusell"
+        >
           <div class="about-slide">
             <div class="about-phone">
               <div class="about-phone-screen">
@@ -83,8 +121,10 @@
                 />
               </div>
             </div>
-            <h3>Skapa och samla recept</h3>
-            <p>Samla dina recept på ett ställe och få bättre ordning i vardagen.</p>
+            <h3 data-i18n="slide1Title">Skapa och samla recept</h3>
+            <p data-i18n="slide1Text">
+              Samla dina recept på ett ställe och få bättre ordning i vardagen.
+            </p>
           </div>
 
           <div class="about-slide">
@@ -98,8 +138,10 @@
                 />
               </div>
             </div>
-            <h3>Följ recepten enkelt</h3>
-            <p>Se ingredienser, instruktioner och bilder i en tydlig och lugn layout.</p>
+            <h3 data-i18n="slide2Title">Följ recepten enkelt</h3>
+            <p data-i18n="slide2Text">
+              Se ingredienser, instruktioner och bilder i en tydlig och lugn layout.
+            </p>
           </div>
 
           <div class="about-slide">
@@ -113,8 +155,10 @@
                 />
               </div>
             </div>
-            <h3>Anpassa appen</h3>
-            <p>Justera appen efter dina behov och ha dina recept nära till hands.</p>
+            <h3 data-i18n="slide3Title">Anpassa appen</h3>
+            <p data-i18n="slide3Text">
+              Justera appen efter dina behov och ha dina recept nära till hands.
+            </p>
           </div>
         </div>
 
@@ -127,16 +171,21 @@
     </section>
 
     <section id="download" class="section">
-      <h2>Ladda ner appen</h2>
-      <p>Snart tillgänglig på App Store.</p>
-      <a href="#" class="btn primary" aria-label="Ladda ner Mina Recept på App Store">
+      <h2 data-i18n="downloadTitle">Ladda ner appen</h2>
+      <p data-i18n="downloadText">Snart tillgänglig på App Store.</p>
+      <a
+        href="#"
+        class="btn primary"
+        aria-label="Ladda ner Mina Recept på App Store"
+        data-i18n="downloadBtn"
+      >
         Kommer snart till App Store
       </a>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 Min Receptsamling. Alla rättigheter förbehållna.</p>
+    <p data-i18n="footerText">© 2026 Min Receptsamling. Alla rättigheter förbehållna.</p>
   </footer>
 
   <script src="script.js"></script>
