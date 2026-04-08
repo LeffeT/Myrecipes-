@@ -43,8 +43,8 @@ function setupLanguage() {
       slide3Text:
         "Justera appen efter dina behov och ha dina recept nära till hands.",
       downloadTitle: "Ladda ner appen",
-      downloadText: "Snart tillgänglig på App Store.",
-      downloadBtn: "Kommer snart till App Store",
+      downloadText: "Hämta appen på App Store.",
+      downloadBtn: "Ladda ner på App Store",
       footerText: "© 2026 Min Receptsamling. Alla rättigheter förbehållna."
     },
     en: {
@@ -83,8 +83,8 @@ function setupLanguage() {
       slide3Text:
         "Adjust the app to your needs and keep your recipes close at hand.",
       downloadTitle: "Download the app",
-      downloadText: "Coming soon to the App Store.",
-      downloadBtn: "Coming soon to the App Store",
+      downloadText: "Get the app on the App Store.",
+      downloadBtn: "Download on the App Store",
       footerText: "© 2026 My Recipe Collection. All rights reserved."
     }
   };
