@@ -78,7 +78,7 @@ function setupLanguage() {
         "Keep your recipes in one place and bring more order to everyday cooking.",
       slide2Title: "Follow recipes easily",
       slide2Text:
-        "See ingredients, instructions, and images in a clear and calm layout.",
+        "Follow a checklist so you don’t forget anything, presented in a clear and calm layout.",
       slide3Title: "Customize the app",
       slide3Text:
         "Adjust the app to your needs and keep your recipes close at hand.",
