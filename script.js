@@ -9,13 +9,13 @@ function setupLanguage() {
   const translations = {
     sv: {
       htmlLang: "sv",
-      pageTitle: "Mina Recept – Din personliga kokbok i mobilen",
+      pageTitle: "Mina Recept – Din personliga receptsamling i mobilen",
       metaDescription:
-        "Mina Recept är din personliga kokbok i mobilen. Skapa, spara och organisera dina favoritrecept enkelt och stilrent.",
+        "Mina Recept är din personliga receptsamling i mobilen. Skapa, spara och organisera dina favoritrecept enkelt och stilrent.",
       navFeatures: "Funktioner",
       navAbout: "Om appen",
       navDownload: "Ladda ner",
-      heroTitle: "Din personliga kokbok i mobilen",
+      heroTitle: "Din personliga receptsamling i mobilen",
       heroText:
         "Skapa, spara och organisera dina favoritrecept på ett enkelt och stilrent sätt. Ha allt samlat på ett ställe, alltid nära till hands. Dela enkelt recept med familj och vänner.",
       heroPrimaryBtn: "Ladda ner appen",
