@@ -896,7 +896,19 @@ main {
     line-height: 1.75;
   }
 
+  .hero-lead,
+  .section-intro,
+  .about-text,
+  .download-text,
+  .feature-list li,
+  .about-slide p {
+    color: #5a4f46;
+    font-weight: 500;
+  }
+
   .hero-kicker {
+    color: #8f4812;
+    font-weight: 700;
     text-align: center;
   }
 
@@ -959,8 +971,12 @@ main {
   .hero-kicker,
   .section-label,
   .visual-label {
+    color: #8f4812;
     font-size: 0.74rem;
+    font-weight: 700;
     letter-spacing: 0.07em;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 24px rgba(86, 54, 29, 0.1);
   }
 
   .hero-lead,
