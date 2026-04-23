@@ -429,6 +429,7 @@ function setupShowcaseGallery() {
     lightboxImage.src =
       button.dataset.resolvedSrc || button.querySelector(".showcase-card-image")?.src || "";
 
+    lightbox.style.display = "grid";
     lightbox.hidden = false;
     document.body.classList.add("showcase-modal-open");
 
@@ -447,6 +448,7 @@ function setupShowcaseGallery() {
     window.clearTimeout(closeTimeout);
     closeTimeout = window.setTimeout(() => {
       lightbox.hidden = true;
+      lightbox.style.display = "none";
       lightboxImage.removeAttribute("src");
     }, 220);
   }
