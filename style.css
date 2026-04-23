@@ -204,11 +204,16 @@ a {
   margin: 42px auto 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
-  gap: 36px;
+  grid-template-areas:
+    "text visual"
+    "benefits visual";
+  column-gap: 36px;
+  row-gap: 24px;
   align-items: center;
 }
 
 .hero-text {
+  grid-area: text;
   max-width: 600px;
 }
 
@@ -304,11 +309,11 @@ a {
 }
 
 .hero-benefits {
+  grid-area: benefits;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   max-width: 560px;
-  margin-top: 28px;
 }
 
 .hero-benefits span {
@@ -324,6 +329,7 @@ a {
 }
 
 .hero-visual {
+  grid-area: visual;
   display: flex;
   justify-content: center;
 }
@@ -795,7 +801,11 @@ main {
 @media (max-width: 1024px) {
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 36px;
+    grid-template-areas:
+      "text"
+      "visual"
+      "benefits";
+    gap: 28px;
   }
 
   .hero-text,
@@ -819,7 +829,6 @@ main {
   .hero-benefits {
     justify-content: center;
     margin: 0 auto;
-    margin-top: 28px;
   }
 }
 
