@@ -9,7 +9,7 @@
   />
   <meta name="theme-color" content="#fff6ec" />
   <title>Min Receptsamling - Din personliga receptsamling</title>
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 <body>
   <header class="hero">
@@ -315,10 +315,8 @@
     <p data-i18n="footerText">© 2026 Min Receptsamling. Alla rättigheter förbehållna.</p>
   </footer>
 
-  <div class="showcase-lightbox" id="showcaseLightbox" hidden style="display: none;">
-    <div class="showcase-lightbox-backdrop" data-showcase-close></div>
-
-    <div class="showcase-lightbox-panel" role="dialog" aria-modal="true">
+  <dialog class="showcase-lightbox" id="showcaseLightbox" aria-label="Förstorad skärmbild">
+    <div class="showcase-lightbox-panel">
       <button
         type="button"
         class="showcase-lightbox-close"
@@ -331,8 +329,8 @@
 
       <img class="showcase-lightbox-image" id="showcaseLightboxImage" alt="" />
     </div>
-  </div>
+  </dialog>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>

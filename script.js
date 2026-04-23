@@ -253,14 +253,6 @@ function setupShowcaseGallery() {
   ];
 
   let activeIndex = 0;
-  let closeTimeout = 0;
-  let isDragging = false;
-  let moved = false;
-  let startX = 0;
-  let currentTranslate = 0;
-  let previousTranslate = 0;
-  let animationId = 0;
-  let suppressClickUntil = 0;
 
   track.innerHTML = "";
 
@@ -304,72 +296,6 @@ function setupShowcaseGallery() {
     return Math.max(0, Math.min(index, cardButtons.length - 1));
   }
 
-  function setTrackPosition(value) {
-    track.scrollLeft = value;
-  }
-
-  function animation() {
-    if (!isDragging) return;
-    setTrackPosition(currentTranslate);
-    animationId = requestAnimationFrame(animation);
-  }
-
-  function pointerDown(clientX) {
-    isDragging = true;
-    moved = false;
-    startX = clientX;
-    previousTranslate = track.scrollLeft;
-    currentTranslate = previousTranslate;
-
-    track.classList.add("dragging");
-    animationId = requestAnimationFrame(animation);
-  }
-
-  function pointerMove(clientX) {
-    if (!isDragging) return;
-
-    const diff = clientX - startX;
-
-    if (Math.abs(diff) > 6) {
-      moved = true;
-    }
-
-    currentTranslate = previousTranslate - diff;
-  }
-
-  function pointerUp() {
-    if (!isDragging) return;
-
-    isDragging = false;
-    track.classList.remove("dragging");
-    cancelAnimationFrame(animationId);
-
-    const step = getCardStep();
-
-    if (moved && step) {
-      const movedBy = currentTranslate - previousTranslate;
-      const threshold = step * 0.12;
-      let currentIndex = clampIndex(Math.round(previousTranslate / step));
-
-      if (movedBy > threshold) {
-        currentIndex = clampIndex(currentIndex + 1);
-      } else if (movedBy < -threshold) {
-        currentIndex = clampIndex(currentIndex - 1);
-      } else {
-        currentIndex = clampIndex(Math.round(track.scrollLeft / step));
-      }
-
-      suppressClickUntil = Date.now() + 280;
-
-      track.scrollTo({
-        left: currentIndex * step,
-        behavior: "smooth"
-      });
-    }
-
-    updateNavButtons();
-  }
-
   function updateNavButtons() {
     if (!prevButton || !nextButton) return;
 
@@ -390,7 +316,7 @@ function setupShowcaseGallery() {
     if (preferredSrc === fallbackSrc) {
       image.src = fallbackSrc;
       button.dataset.resolvedSrc = fallbackSrc;
-      if (!lightbox.hidden && activeIndex === index) {
+      if (lightbox.open && activeIndex === index) {
         lightboxImage.src = fallbackSrc;
       }
       return;
@@ -404,7 +330,7 @@ function setupShowcaseGallery() {
       if (button.dataset.requestId !== requestId) return;
       image.src = preferredSrc;
       button.dataset.resolvedSrc = preferredSrc;
-      if (!lightbox.hidden && activeIndex === index) {
+      if (lightbox.open && activeIndex === index) {
         lightboxImage.src = preferredSrc;
       }
     };
@@ -412,7 +338,7 @@ function setupShowcaseGallery() {
       if (button.dataset.requestId !== requestId) return;
       image.src = fallbackSrc;
       button.dataset.resolvedSrc = fallbackSrc;
-      if (!lightbox.hidden && activeIndex === index) {
+      if (lightbox.open && activeIndex === index) {
         lightboxImage.src = fallbackSrc;
       }
     };
@@ -424,37 +350,34 @@ function setupShowcaseGallery() {
     const button = cardButtons[nextIndex];
     if (!button) return;
 
-    window.clearTimeout(closeTimeout);
     activeIndex = nextIndex;
     lightboxImage.src =
       button.dataset.resolvedSrc || button.querySelector(".showcase-card-image")?.src || "";
 
-    lightbox.style.display = "grid";
-    lightbox.hidden = false;
-    document.body.classList.add("showcase-modal-open");
+    if (!lightbox.open) {
+      if (typeof lightbox.showModal === "function") {
+        lightbox.showModal();
+      } else {
+        lightbox.setAttribute("open", "");
+      }
+    }
 
-    requestAnimationFrame(() => {
-      lightbox.classList.add("is-visible");
-      lightbox.querySelector(".showcase-lightbox-close")?.focus();
-    });
+    document.body.classList.add("showcase-modal-open");
+    lightbox.querySelector(".showcase-lightbox-close")?.focus();
   }
 
   function closeLightbox() {
-    if (lightbox.hidden) return;
+    if (!lightbox.open) return;
 
-    lightbox.classList.remove("is-visible");
-    document.body.classList.remove("showcase-modal-open");
-
-    window.clearTimeout(closeTimeout);
-    closeTimeout = window.setTimeout(() => {
-      lightbox.hidden = true;
-      lightbox.style.display = "none";
-      lightboxImage.removeAttribute("src");
-    }, 220);
+    if (typeof lightbox.close === "function") {
+      lightbox.close();
+    } else {
+      lightbox.removeAttribute("open");
+    }
   }
 
   function stepLightbox(direction) {
-    if (lightbox.hidden) return;
+    if (!lightbox.open) return;
 
     const nextIndex =
       (activeIndex + direction + cardButtons.length) % Math.max(cardButtons.length, 1);
@@ -485,12 +408,7 @@ function setupShowcaseGallery() {
   });
 
   cardButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      if (Date.now() < suppressClickUntil) {
-        event.preventDefault();
-        return;
-      }
-
+    button.addEventListener("click", () => {
       openLightbox(Number(button.dataset.index));
     });
   });
@@ -508,77 +426,13 @@ function setupShowcaseGallery() {
   track.addEventListener("scroll", updateNavButtons, { passive: true });
   window.addEventListener("resize", updateNavButtons);
 
-  track.addEventListener("mousedown", (event) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    pointerDown(event.pageX);
-  });
-
-  window.addEventListener("mousemove", (event) => {
-    if (!isDragging) return;
-    event.preventDefault();
-    pointerMove(event.pageX);
-  });
-
-  window.addEventListener("mouseup", () => {
-    pointerUp();
-  });
-
-  track.addEventListener(
-    "touchstart",
-    (event) => {
-      const touch = event.touches[0];
-      if (!touch) return;
-      pointerDown(touch.clientX);
-    },
-    { passive: true }
-  );
-
-  track.addEventListener(
-    "touchmove",
-    (event) => {
-      if (!isDragging) return;
-      const touch = event.touches[0];
-      if (!touch) return;
-      pointerMove(touch.clientX);
-    },
-    { passive: true }
-  );
-
-  track.addEventListener(
-    "touchend",
-    () => {
-      pointerUp();
-    },
-    { passive: true }
-  );
-
-  track.addEventListener(
-    "touchcancel",
-    () => {
-      pointerUp();
-    },
-    { passive: true }
-  );
-
-  track.addEventListener("mouseleave", () => {
-    if (isDragging) {
-      pointerUp();
-    }
-  });
-
-  track.addEventListener("dragstart", (event) => {
-    event.preventDefault();
-  });
-
-  track.querySelectorAll("img").forEach((img) => {
-    img.addEventListener("dragstart", (event) => {
-      event.preventDefault();
-    });
+  lightbox.addEventListener("close", () => {
+    document.body.classList.remove("showcase-modal-open");
+    lightboxImage.removeAttribute("src");
   });
 
   document.addEventListener("keydown", (event) => {
-    if (lightbox.hidden) return;
+    if (!lightbox.open) return;
 
     if (event.key === "Escape") {
       closeLightbox();
