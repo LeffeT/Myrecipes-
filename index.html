@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Min Receptsamling är din personliga receptsamling — helt privat. Ingen inloggning, ingen spårning och ingen reklam. Alla recept sparas lokalt på din enhet."
+  />
+  <meta name="theme-color" content="#faf2e4" />
+  <title>Min Receptsamling — Din personliga receptsamling</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,18..72,400;0,18..72,500;0,18..72,600;1,18..72,400;1,18..72,500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css?v=5" />
+<link id="gfont-Oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Abril-Fatface" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Righteous" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Bebas-Neue" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Permanent-Marker" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Ubuntu" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<body style="background-color: rgb(28, 20, 9)">
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap nav">
+      <a class="logo" href="#top">
+        <span class="mark"><img src="ikon.png" alt="" /></span>
+        <span class="logo-text">
+          <span class="logo-name" data-i18n="brandName">Min Receptsamling</span>
+          <span class="logo-tag" data-i18n="heroTagline">Spara och organisera recept</span>
+          <span class="logo-meta" data-i18n="bannerMeta">Gratis · Köp inuti app</span>
+        </span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#features" data-i18n="navFeatures">Fördelar</a>
+          <a href="#about" data-i18n="navAbout">Om appen</a>
+        </nav>
+
+        <div class="lang-switch" aria-label="Språkväxlare / Language switcher">
+          <button type="button" class="lang-btn active" data-lang="sv" aria-pressed="true">SV</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <a
+          class="appstore-badge"
+          href="https://apps.apple.com/se/app/min-receptsamling/id6758587009"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ladda ned Min Receptsamling på App Store"
+          data-i18n-aria-label="downloadBtnAria"
+        >
+          <img src="ladda_ner_sv.png?v=2" data-img-sv="ladda_ner_sv.png?v=2" data-img-en="ladda_ner_en.png?v=2" alt="Ladda ner från App Store" class="appstore-img" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===================== Hero (App Store dark banner) ===================== -->
+    <section class="hero hero-dark">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-stage hero-stage-top reveal">
+          <img
+            src="image_home_sv.webp"
+            alt="Fem iPhones med appen Min Receptsamling i olika färgteman"
+            class="hero-phones"
+            draggable="false"
+            data-img-sv="image_home_sv.webp"
+            data-img-en="image_home_en.webp"
+            data-i18n-alt="heroImageAlt"
+          />
+        </div>
+
+        <p class="eyebrow hero-eyebrow reveal" data-i18n="heroKicker">
+          Helt privat · Inget konto · Ingen reklam
+        </p>
+        <h1 class="hero-title reveal" data-i18n="heroTitle" data-i18n-html="heroTitle">
+          Alla dina recept, samlade på ett <em>vackert</em> ställe.
+        </h1>
+        <p class="hero-lead reveal" data-i18n="heroText">
+          Skriv, spara och laga dina favoriter direkt i mobilen. Allt stannar på din enhet
+          och synkas privat via iCloud — utan konto, reklam eller spårning.
+        </p>
+
+        <div class="hero-cta reveal">
+          <a
+            class="appstore-badge appstore-badge--lg"
+            href="https://apps.apple.com/se/app/min-receptsamling/id6758587009"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ladda ned Min Receptsamling på App Store"
+            data-i18n-aria-label="downloadBtnAria"
+          >
+            <img src="ladda_ner_sv.png?v=2" data-img-sv="ladda_ner_sv.png?v=2" data-img-en="ladda_ner_en.png?v=2" alt="Ladda ner från App Store" class="appstore-img" />
+          </a>
+          <span class="hero-cta-sub" data-i18n="heroCtaSub">Gratis · Inget konto behövs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Features ===================== -->
+    <section id="features" class="section wrap">
+      <div class="section-head center">
+        <p class="eyebrow" data-i18n="featuresLabel">Det som gör skillnad</p>
+        <h2 data-i18n="featuresTitle" data-i18n-html="featuresTitle">
+          Full kontroll över <em>dina</em> recept
+        </h2>
+        <p data-i18n="featuresIntro">
+          Din data stannar hos dig. Recepten sparas på din enhet och kan synkas säkert med
+          iCloud mellan dina enheter — inget konto, ingen reklam, ingen spårning.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature reveal">
+          <h3 data-i18n="feature1Title">Privat som standard</h3>
+          <ul>
+            <li data-i18n="feature1Point1">Alla recept sparas lokalt på din enhet</li>
+            <li data-i18n="feature1Point2">Ingen data skickas till servrar</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <h3 data-i18n="feature2Title">Inga konton</h3>
+          <ul>
+            <li data-i18n="feature2Point1">Börja direkt – ingen registrering</li>
+            <li data-i18n="feature2Point2">Inget lösenord att hålla reda på</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <h3 data-i18n="feature3Title">Ingen reklam</h3>
+          <ul>
+            <li data-i18n="feature3Point1">Inga banners, inga popups</li>
+            <li data-i18n="feature3Point2">Fokus på matlagning, inte annonser</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <h3 data-i18n="feature4Title">Enkelt att dela recept</h3>
+          <ul>
+            <li data-i18n="feature4Point1">Dela recept med familj och vänner</li>
+            <li data-i18n="feature4Point2">Dela med sms eller mail</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <h3 data-i18n="feature5Title">Ingen datainsamling</h3>
+          <ul>
+            <li data-i18n="feature5Point1">Appen samlar inte in personlig data</li>
+            <li data-i18n="feature5Point2">Ingen information delas vidare till tredje part</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <h3 data-i18n="feature6Title">Ingen spårning</h3>
+          <ul>
+            <li data-i18n="feature6Point1">Inga spårningsverktyg följer din användning</li>
+            <li data-i18n="feature6Point2">Du använder recepten i lugn och ro</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Showcase ===================== -->
+    <section id="about" class="section showcase-section">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow" data-i18n="aboutLabel">Se appen</p>
+          <h2 data-i18n="aboutTitle" data-i18n-html="aboutTitle">En titt i <em>köket</em></h2>
+          <p data-i18n="aboutText">
+            Bläddra igenom några vyer och få en känsla för hur Min Receptsamling håller
+            recepten tydliga, inspirerande och nära till hands.
+          </p>
+        </div>
+
+        <div class="app-showcase reveal" data-showcase>
+          <div class="showcase-shell">
+            <button
+              type="button"
+              class="showcase-nav showcase-nav-prev"
+              data-showcase-prev
+              aria-label="Föregående skärmbild"
+              data-i18n-aria-label="showcasePrev"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+
+            <div
+              class="showcase-track"
+              id="showcaseTrack"
+              aria-label="Skärmbilder från Min Receptsamling"
+              data-i18n-aria-label="showcaseTrackLabel"
+            ></div>
+
+            <button
+              type="button"
+              class="showcase-nav showcase-nav-next"
+              data-showcase-next
+              aria-label="Nästa skärmbild"
+              data-i18n-aria-label="showcaseNext"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Download ===================== -->
+    <section id="download" class="download-section wrap">
+      <div class="download-card reveal">
+        <p class="eyebrow" data-i18n="downloadLabel">Redo att börja?</p>
+        <h2 data-i18n="downloadTitle">Ladda ner Min Receptsamling</h2>
+        <p data-i18n="downloadText">
+          Hämta appen och kom igång direkt — utan konto, reklam eller spårning.
+        </p>
+
+        <div class="download-actions">
+          <a
+            class="appstore-badge appstore-badge--lg"
+            href="https://apps.apple.com/se/app/min-receptsamling/id6758587009"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ladda ned Min Receptsamling på App Store"
+            data-i18n-aria-label="downloadBtnAria"
+          >
+            <img src="ladda_ner_sv.png?v=2" data-img-sv="ladda_ner_sv.png?v=2" data-img-en="ladda_ner_en.png?v=2" alt="Ladda ner från App Store" class="appstore-img" />
+          </a>
+
+          <a
+            class="download-qr"
+            href="https://apps.apple.com/se/app/min-receptsamling/id6758587009"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Öppna Min Receptsamling i App Store"
+            data-i18n-aria-label="downloadQrAria"
+          >
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fapps.apple.com%2Fse%2Fapp%2Fmin-receptsamling%2Fid6758587009"
+              alt="QR-kod till Min Receptsamling på App Store"
+              width="180"
+              height="180"
+              loading="lazy"
+              data-i18n-alt="downloadQrAlt"
+            />
+            <span>
+              <span class="qr-title" data-i18n="downloadQrTitle">Skanna QR-koden</span>
+              <span class="qr-text" data-i18n="downloadQrText">Öppna kameran för att gå direkt till appen.</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="logo" href="#top"><span class="mark"><img src="ikon.png" alt="" /></span><span data-i18n="brandName">Min Receptsamling</span></a>
+      <p data-i18n="footerText">© 2026 Min Receptsamling. Alla rättigheter förbehållna.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <dialog class="showcase-lightbox" id="showcaseLightbox" aria-label="Förstorad skärmbild">
+    <div class="showcase-lightbox-panel">
+      <button
+        type="button"
+        class="showcase-lightbox-close"
+        aria-label="Stäng bild"
+        data-i18n-aria-label="showcaseClose"
+        data-showcase-close
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+      <img class="showcase-lightbox-image" id="showcaseLightboxImage" alt="" />
+    </div>
+  </dialog>
+
+  <script src="script.js?v=3"></script>
+
+  <!-- Tweaks panel (accent colour, background tone, heading style) -->
+  <div id="tweaks-root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="tweaks-app.jsx"></script>
+</body>
+</html>
