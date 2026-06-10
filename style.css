@@ -923,6 +923,28 @@ html.heads-sans .logo .mark { font-style: normal; font-weight: 800; }
 }
 .site-header.scrolled .nav { height: 72px; }
 
+/* Compact the App Store banner on phones so the language switch stays on screen */
+@media (max-width: 600px) {
+  .site-header:not(.scrolled) .nav {
+    min-height: 0;
+    padding-block: 18px;
+    gap: 12px;
+  }
+  .site-header:not(.scrolled) .logo { gap: 14px; min-width: 0; }
+  .site-header .logo-text { white-space: normal; min-width: 0; }
+  .site-header:not(.scrolled) .logo .mark {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+  .site-header:not(.scrolled) .logo-name { font-size: 1.18rem; line-height: 1.15; }
+  .site-header:not(.scrolled) .logo-tag { font-size: 0.82rem; }
+  .site-header:not(.scrolled) .logo-meta { font-size: 0.74rem; }
+  .site-header .nav-right { flex-shrink: 0; gap: 10px; }
+  .site-header .lang-switch { flex-shrink: 0; }
+  .site-header .lang-btn { padding: 5px 9px; font-size: 0.76rem; }
+}
+
 /* Hero shell */
 .hero-dark {
   position: relative;
